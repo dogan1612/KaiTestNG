@@ -496,6 +496,20 @@ public class BrowserUtils {
                 until(ExpectedConditions.stalenessOf(Driver.getDriver().findElement(by)));
     }
 
+    public void clickWhenReady(By locator, int timeout) {
+        WebElement element = null;
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
+        element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+        element.click();
+    }
+
+    public WebElement getWhenVisible(By locator, int timeout) {
+        WebElement element = null;
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
+        element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        return element;
+
+    }
 
 
 }

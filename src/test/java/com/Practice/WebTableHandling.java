@@ -68,7 +68,6 @@ public class WebTableHandling {
             sum += num;
         }
         System.out.println(sum/100);
-
         driver.quit();
     }
 }
