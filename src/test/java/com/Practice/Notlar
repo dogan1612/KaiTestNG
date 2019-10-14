@@ -1,0 +1,45 @@
+In TestNG, we can automatically stop executing a test if it gets stuck or takes longer than expected time to complete.
+This functionality is enabled using the “timeOut” attribute of @Test annotation.
+
+@Test ( timeOut = 1000 ) //Time in milliseconds
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+TestNG offers a feature that allows us to make a method depend on another for execution.
+So if a dependent method fails, all the subsequent methods would be skipped.
+Dependency can be specified using annotations or in testng.xml file.
+These methods would only work if the dependent method is part of the same class or in one of the inherited class.
+
+@Test(dependsOnMethods = { "TestB", "TestC" })
+public void TestA() {
+    System.out.println("Test A");
+}
+
+***
+
+public class DependencyDemo {
+    @Test(dependsOnGroups = { "GroupB", "GroupC" })
+    public void TestA() {
+        System.out.println("Test A");
+    }
+
+    @Test(dependsOnMethods="TestC", groups = { "GroupB" })
+    public void TestB() {
+        System.out.println("Test B");
+    }
+
+    @Test(groups = { "GroupC" })
+    public void TestC() {
+        System.out.println("Test C");
+    }
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+How to Run a Test Case multiple times with different Values as Input?
+
+In TestNG, there’s a concept known as data driven testing, which allows testers to automatically
+run a test case multiple times, with different input and validation values.
+In such cases parameters can be passed using Dataproviders.
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

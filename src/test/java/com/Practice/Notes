@@ -1,0 +1,49 @@
+
+We have Synchronization issues when Selenium and the web page are not working parallel with each other.
+	>>  “Element Not Found” error  	(such as NoSuchElementException)
+
+Unconditional Synchronization
+	>>  Thread.sleep(milliseconds)
+    >>  Without check for a condition, Selenium will wait certain time before proceeding.
+    >>  Disadvantage is: The tool will be made to wait unnecessarily even when the application is ready.
+
+Conditional Synchronization
+    >>  It means, to specify a condition along with the timeout value
+    >>  Implicit Wait vs Explicit Wait
+
+
+When we face an issue:
+1-	Check if element is dynamic or not
+2-	Check if the element is on same page   -->   check <iframe> tag
+3-	If element is not dynamic  & if the element is on the same page, then it is a syncronization issue
+
+
+IMPLICIT WAIT
+Specifies the amount of time the driver should wait when searching for an element if it is not immediately present.
+Once set, the implicit wait is set for the life of the WebDriver object instance.
+The default setting is 0.
+
+driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
+EXPLICIT WAIT
+Specifies to wait for a certain condition to occur before proceeding further in the code.
+WebDriverWait by default calls the ExpectedCondition every 500 milliseconds until it returns successfully.
+
+WebDriverWait wait = new WebDriverWait(driver, 40);         => used for a specific element
+wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(“..”))
+
+We are using explicit wait, (mostly if we have something apart from presence issue)
+for a particular element or a condition
+
+
+FLUENT WAIT
+Fluent wait is an implementation of Wait Interface
+The fluent wait is used to tell the web driver to wait for a condition, as well as the frequency
+with which we want to check the condition before throwing an "ElementNotVisibleException" exception.
+
+Wait<WebDriver> wait = new FluentWait<>(driver)
+    .withTimeout(Duration.ofSeconds(30))          // sets how long to wait
+    .pollingEvery(Duration.ofSeconds(5))          // will check the condition every 5 seconds
+    .ignoring(NoSuchElementException.class);
+
+In Selenium3 => You can write .withTimeout(Duration.ofSeconds(10))

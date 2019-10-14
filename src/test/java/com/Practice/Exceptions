@@ -1,0 +1,12 @@
+ElementNotInteractableException
+==> Element is not reachable by keyboard
+==> ElementNotInteractableException is the W3C exception which is thrown
+    to indicate that although an element is present on the HTML DOM,
+    it is not in a state that can be interacted with.
+Example: Gmail. Password field after username entry
+
+********************************
+UnsupportedOperationException
+Example: select.deselectAll();
+==> You may use deselect all method only, when you can can multi-select options
+System.out.println(select.isMultiple());
