@@ -1,4 +1,4 @@
-package com.Dogan.tests;
+package com.POI;
 
 import org.apache.poi.ss.usermodel.*;
 import org.testng.annotations.AfterMethod;

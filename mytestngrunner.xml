@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!--suite -> suite -> test -> group -> package -> class -> method -->
+<suite name="Login tests">
+    <test name="Login">
+        <classes>
+            <class name="com.Dogan.tests.components.login_navigation.LoginTests"/>
+        </classes>
+    </test>
+</suite>

@@ -1,6 +1,6 @@
 package com.Dogan.pages.activites;
 
-import com.vytrack.utilities.BasePage;
+import com.Dogan.utilities.BasePage;
 
 public class CallsPage extends BasePage {
 

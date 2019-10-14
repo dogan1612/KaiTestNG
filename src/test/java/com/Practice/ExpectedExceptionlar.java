@@ -1,4 +1,4 @@
-package com.Dogan.tests.Denemeler;
+package com.Practice;
 
 import org.testng.annotations.Test;
 

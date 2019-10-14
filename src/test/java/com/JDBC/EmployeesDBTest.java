@@ -1,4 +1,4 @@
-package com.Dogan.tests.dataBaseTests;
+package com.JDBC;
 
 import com.Dogan.utilities.DBType;
 import com.Dogan.utilities.DBUtility;

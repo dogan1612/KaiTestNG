@@ -1,4 +1,4 @@
-package com.Dogan.tests;
+package com.Practice;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

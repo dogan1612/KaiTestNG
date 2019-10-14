@@ -1,4 +1,4 @@
-package com.Dogan.tests.dataBaseTests;
+package com.JDBC;
 
 import org.testng.annotations.Test;
 
