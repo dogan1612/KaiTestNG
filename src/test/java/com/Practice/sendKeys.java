@@ -53,6 +53,19 @@ public class sendKeys {
         SoftAssert soft = new SoftAssert();
         soft.assertEquals("Practice", driver.getTitle());
     }
+
+    @Test
+    public void flightsTest() throws InterruptedException {
+        driver.get("https://www.expedia.com/");
+        driver.findElement(By.id("tab-flight-tab-hp")).click();
+        driver.findElement(By.id("flight-origin-hp-flight")).sendKeys("Washington, DC (IAD-Washington Dulles Intl.)");
+        driver.findElement(By.xpath("//input[@id='flight-destination-hp-flight']")).sendKeys("Houston, TX (HOU-All Airports)");
+        driver.findElement(By.id("flight-departing-hp-flight")).sendKeys("9/1/2019");
+        driver.findElement(By.xpath("//input[@id='flight-returning-hp-flight']")).sendKeys("10/01/2019");
+        driver.findElement(By.xpath("(//button[@class='btn-primary btn-action gcw-submit'])[1]")).click();
+        Thread.sleep(2000);
+
+    }
     @AfterMethod
     public void tearDown(){
         driver.quit();

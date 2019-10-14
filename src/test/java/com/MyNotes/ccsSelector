@@ -1,0 +1,106 @@
+CSS Selector
+    It doesn't starts with // or / , id doesn't have @.
+
+Basic syntax:
+​
+	tagname[attribute='value']
+​
+CSS selector (locator) cannot find element by text.
+​
+[id='disappearing_button'] or #disappearing_button
+​
+​
+# - means id.
+​
+. - means class
+​
+<h3 class="h3">Multiple buttons</h3>
+​
+h3[class='h3'] or [class='h3'] or .h3
+
+##### Index of element #########
+​
+with css
+.btn.btn-primary:nth-of-type(5)
+or
+​
+[class='btn btn-primary']:nth-of-type(5)
+​
+with xpath
+//button[@class='btn btn-primary'][5]
+​
+​
+​
+[class='btn btn-primary']:nth-of-type(5) - means find me 5th element with class btn btn-primary.
+​
+######## Starts-with ###########
+​
+caret sign "^" - means starts-with
+​
+[id^='button_'] - means find me element, that has id that starts with button_
+​
+### Ends-with and multiple attributes
+​
+[id$='_button'][onclick='button4()'] - in this case, we specified 2 attributes.
+​
+$ - means ends with.
+​
+######### Contains ############
+​
+[onclick*='5'] - means find me element that contains 5 in attribute onclick.
+​
+* - stands for "contains".
+​
+[attribute*='value'] - means attribute contains value 'value'.
+​
+# - stands for id
+​
+#disappearing_button - means element with id disappearing_button.
+​
+If in xpath / means direct child, in css we use >.
+​
+######### From parent To Child ###################
+​
+html/body/div/div[2]/div/div[1]/p - absolute xpath
+​
+This is CSS Selector style:
+​
+html > body > div > div:nth-of-type(2) > div > div:nth-of-type(1) > p
+​
+html > * - means any direct child of html.
+​
+##############################
+ throw new SkipException("I don't want to run this test.");
+​
+ Will skip test. If you put before something, you will get:
+​
+ unreachable statement!
+​
+@Ignore - will ignore test
+​
+​
+ enabled = false - to disable test
+​
+ dependsOnMethods = {"button1Test"} - will indicate methods that affects on current test. If those methods fail, it will ignore method with dependency.
+​
+​
+ dependsOnMethods - it can be useful when method is dependent on method precondition. We can also specify priority. So method with lowest priority will be running first.
+​
+​
+  @Test (priority = 2, dependsOnMethods = {"button1Test", "setup"})
+​
+We can specify multiple dependencies for dependsOnMethods parameter. That means test can be dependent on multiple methods at the same time.
+​
+​
+If setup method fails, anyway you can run test. If test has a dependency, method that it depend on, must run before anyways. Regardless on priority.
+​
+Priority will be ignored in this case.
+
+
+String button1Locator = "[onclick='button1()']";
+    String button2Locator = ".btn.btn-primary:nth-of-type(2)";
+    String button3Locator = "[id^='button_']";
+    String button4Locator = "[id$='_button'][onclick='button4()']";
+    String button5Locator = "[onclick*='5']";
+    String button6Locator = "#disappearing_button";
+    String resultLocator = "#result";

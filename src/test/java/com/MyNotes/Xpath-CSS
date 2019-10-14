@@ -1,0 +1,43 @@
+XPATH basic syntax:
+    //tag[@attribute='value']
+    //*[@attribute='value']
+    //tag[text()='some text']
+    //*[contains(@attribute,'value')]
+    //*[contains(text(),'some text']
+
+
+if it's not uniqe:
+//tagname[ @Attribute=' value of the attribute ' and  @SecondAttribute='value'  and .. ]
+//button[@type='submit' and @name='websubmit']
+//button[@class='btn btn-primary'][@onclick='button2()']
+//button[@class='btn btn-primary' and @onclick='button2()']
+
+webelement with visible text:
+//tagname[contains(text(),'partial visible text')]
+//button[contains(text(), 'Sign Up' )]
+//*[contains(text(),'Male')]
+
+//button[starts-with(@id,'button_')]
+
+In this case we are looking for element by exact text:
+//button[text()='Button 1']
+//button[.='Button 1'] - . means text.
+
+(//div[@id='custom_entity-update']//a)[1] - means find element with id custom_entity-update and go to child a. Then select only first element.
+//div[@id='custom_entity-update']//a[.='General'] - find div with id custom_entity-update, and the find child with link text General.
+
+How to check or how to figure out that id is dynamic?
+==> Try to refresh page and see if id changes.
+==> NoSuchSessionException --> Unable to locate element
+
+*****
+If element is not in the DOM, and you are trying to find that element, you will get exception.
+Example: After we clicked on the button, that button was deleted. isDisplayed() will return false.
+
+If you need to check if element is gone, not on the page:
+Assert.assertTrue(driver.findElements(By.xpath(button6locator)).size() == 0);
+
+findElements(By.xpath(button6locator)).size() == 0  means 0 elements found based on this locator. No exception will occur.
+
+
+

@@ -47,5 +47,38 @@ public class SelectPractice {
         for(int i=0; i<values.size();i++){
             System.out.println(values.get(i).getAttribute("lang"));
         }
+
+    /////////////////////// *** \\\\\\\\\\\\\\\\\\\\\\\
+
+        driver.get("https://www.facebook.com");
+        WebElement monthDB = driver.findElement(By.xpath("//select[@aria-label='Month']"));
+
+        Select month = new Select(monthDB);
+        month.selectByIndex(5);
+                Thread.sleep(1000);
+        month.selectByValue("11");
+                Thread.sleep(1000);
+        month.selectByVisibleText("Sep");
+
+        List<WebElement>  list1 = month.getOptions();
+        WebElement september= list1.get(9);
+        System.out.println( september.isSelected() );
+
+    /////////////////////// *** \\\\\\\\\\\\\\\\\\\\\\\
+
+        WebElement yearDB =driver.findElement(By.name("birthday_year"));
+        Select year = new Select(yearDB);
+        year.selectByVisibleText("1909");
+            Thread.sleep(1000);
+        List<WebElement> list3 =  year.getOptions();
+        WebElement Y1909 =null;
+
+        for(WebElement each :list3) {
+            if (each.getText().equals("1909")) {
+                Y1909 = each;
+                break;
+            }
+        }
+        System.out.println( Y1909.isSelected() );
     }
 }
